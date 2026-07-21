@@ -23,11 +23,34 @@ import { getSearchStateFromUrl, applySearchStateToUrl } from './search-url.js';
 import '../../scripts/initializers/search.js';
 import '../../scripts/initializers/wishlist.js';
 
+const CATEGORY_ROUTE_SEGMENT = 'categories';
+
+function getCategoryPath(config) {
+  if (config.urlpath) return config.urlpath;
+
+  const pathSegments = window.location.pathname.split('/').filter(Boolean);
+  const categorySegmentIndex = pathSegments.indexOf(CATEGORY_ROUTE_SEGMENT);
+  const categorySegments = pathSegments.slice(categorySegmentIndex + 1);
+
+  if (categorySegmentIndex === -1
+    || categorySegments.length === 0
+    || (categorySegments.length === 1 && categorySegments[0] === 'default')) {
+    return null;
+  }
+
+  try {
+    return `/${categorySegments.map((segment) => decodeURIComponent(segment)).join('/')}`;
+  } catch {
+    return null;
+  }
+}
+
 export default async function decorate(block) {
   const labels = await fetchPlaceholders();
 
   const config = readBlockConfig(block);
   const pageSize = parseInt(config.pagesize, 10) || 9;
+  const categoryPath = getCategoryPath(config);
 
   const fragment = document.createRange()
     .createContextualFragment(`
@@ -53,8 +76,8 @@ export default async function decorate(block) {
 
   // Add url path back to the block for enrichment, incase enrichment block is
   // executed after the plp block and block config is not available
-  if (config.urlpath) {
-    block.dataset.urlpath = config.urlpath;
+  if (categoryPath) {
+    block.dataset.urlpath = categoryPath;
   }
 
   const searchState = getSearchStateFromUrl(new URL(window.location.href));
@@ -69,7 +92,7 @@ export default async function decorate(block) {
   window.history.replaceState({}, '', normalizedUrl.toString());
 
   // Request search based on the page type on block load
-  if (config.urlpath) {
+  if (categoryPath) {
     // If it's a category page...
     await search({
       phrase: '', // search all products in the category
@@ -77,7 +100,7 @@ export default async function decorate(block) {
       pageSize,
       sort: searchState?.sort?.length ? searchState.sort : [{ attribute: 'position', direction: 'DESC' }],
       filter: [
-        { attribute: 'categoryPath', eq: config.urlpath }, // Add category filter
+        { attribute: 'categoryPath', eq: categoryPath }, // Add category filter
         // Always add visibility filter to the request
         visibilityFilter,
         ...userFilters,
