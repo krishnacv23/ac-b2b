@@ -26,7 +26,9 @@ import '../../scripts/initializers/wishlist.js';
 const CATEGORY_ROUTE_SEGMENT = 'categories';
 
 function getCategoryPath(config) {
-  if (config.urlpath) return config.urlpath;
+  if (config.urlpath) {
+    return String(config.urlpath).replace(/^\/+/, '');
+  }
 
   const pathSegments = window.location.pathname.split('/').filter(Boolean);
   const categorySegmentIndex = pathSegments.indexOf(CATEGORY_ROUTE_SEGMENT);
@@ -39,7 +41,7 @@ function getCategoryPath(config) {
   }
 
   try {
-    return `/${categorySegments.map((segment) => decodeURIComponent(segment)).join('/')}`;
+    return categorySegments.map((segment) => decodeURIComponent(segment)).join('/');
   } catch {
     return null;
   }
