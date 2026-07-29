@@ -74,6 +74,18 @@
     ]
   },
   {
+    "id": "text",
+    "fields": [
+      {
+        "component": "richtext",
+        "name": "text",
+        "label": "Text",
+        "valueType": "string",
+        "value": ""
+      }
+    ]
+  },
+  {
     "id": "image",
     "fields": [
       {

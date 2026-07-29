@@ -3,6 +3,7 @@
     {
       "title": "Text",
       "id": "text",
+      "model": "text",
       "plugins": {
         "da": {
           "name": "text",
@@ -11,5 +12,18 @@
       }
     }
   ],
-  "models": []
+  "models": [
+    {
+      "id": "text",
+      "fields": [
+        {
+          "component": "richtext",
+          "name": "text",
+          "label": "Text",
+          "valueType": "string",
+          "value": ""
+        }
+      ]
+    }
+  ]
 }

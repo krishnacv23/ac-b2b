@@ -157,6 +157,8 @@
         "commerce-search-order",
         "commerce-shipping-status",
         "commerce-wishlist",
+        "blog-list",
+        "blog-related-products",
         "enrichment",
         "fragment",
         "image",
