@@ -28,6 +28,48 @@
         "name": "sku",
         "label": "SKU",
         "description": "Optional: Specify a product SKU for this page"
+      },
+      {
+        "component": "text",
+        "name": "template",
+        "label": "Template",
+        "description": "Page template, for example blog-article or blog-list"
+      },
+      {
+        "component": "text",
+        "name": "blog-category",
+        "label": "Blog Category",
+        "description": "Primary blog category used for listing filters"
+      },
+      {
+        "component": "text",
+        "name": "blog-tags",
+        "label": "Blog Tags",
+        "description": "Comma-separated blog tags"
+      },
+      {
+        "component": "text",
+        "name": "author",
+        "label": "Author",
+        "description": "Display name for the post author"
+      },
+      {
+        "component": "text",
+        "name": "author-slug",
+        "label": "Author Slug",
+        "description": "Used to link author pages under /blog/authors/{slug}"
+      },
+      {
+        "component": "text",
+        "name": "publication-date",
+        "label": "Publication Date",
+        "description": "ISO date (YYYY-MM-DD) for sorting and article metadata"
+      },
+      {
+        "component": "text",
+        "name": "related-skus",
+        "label": "Related SKUs",
+        "description": "Comma-separated product SKUs for related products"
       }
     ]
   },
@@ -176,6 +218,60 @@
         "label": "Text",
         "valueType": "string",
         "required": true
+      }
+    ]
+  },
+  {
+    "id": "blog-list",
+    "fields": [
+      {
+        "component": "text",
+        "name": "category",
+        "label": "Category"
+      },
+      {
+        "component": "text",
+        "name": "tag",
+        "label": "Tag"
+      },
+      {
+        "component": "text",
+        "name": "author",
+        "label": "Author"
+      },
+      {
+        "component": "text",
+        "name": "limit",
+        "label": "Limit"
+      },
+      {
+        "component": "text",
+        "name": "sort",
+        "label": "Sort",
+        "value": "publication-date:desc"
+      }
+    ]
+  },
+  {
+    "id": "blog-related-products",
+    "fields": [
+      {
+        "component": "text",
+        "name": "title",
+        "label": "Title",
+        "value": "Related Products"
+      },
+      {
+        "component": "text",
+        "name": "skus",
+        "label": "SKUs",
+        "description": "Comma-separated product SKUs"
+      },
+      {
+        "component": "text",
+        "name": "limit",
+        "label": "Limit",
+        "value": "4"
       }
     ]
   },

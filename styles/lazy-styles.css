@@ -1,1 +1,11 @@
 /* add global styles that can be loaded post LCP here */
+
+.blog-byline {
+  margin: 0.5rem 0 1.5rem;
+  color: var(--color-neutral-700);
+  font-size: 1.4rem;
+}
+
+.blog-byline__tags a {
+  font-size: 1.2rem;
+}

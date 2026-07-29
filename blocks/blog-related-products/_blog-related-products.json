@@ -1,0 +1,40 @@
+{
+  "definitions": [
+    {
+      "title": "Blog Related Products",
+      "id": "blog-related-products",
+      "model": "blog-related-products",
+      "plugins": {
+        "da": {
+          "type": "key-value-block"
+        }
+      }
+    }
+  ],
+  "models": [
+    {
+      "id": "blog-related-products",
+      "fields": [
+        {
+          "component": "text",
+          "name": "title",
+          "label": "Title",
+          "value": "Related Products"
+        },
+        {
+          "component": "text",
+          "name": "skus",
+          "label": "SKUs",
+          "description": "Comma-separated product SKUs"
+        },
+        {
+          "component": "text",
+          "name": "limit",
+          "label": "Limit",
+          "value": "4"
+        }
+      ]
+    }
+  ],
+  "filters": []
+}

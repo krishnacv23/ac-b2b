@@ -52,3 +52,51 @@ indices:
         select: head > meta[name="enrichment-positions"]
         values: |
           match(attribute(el, 'content'), '([^,]+)')
+  blog:
+    target: /blog-index.json
+    include:
+      - 'blog/**'
+    exclude:
+      - 'blog/tags/**'
+      - 'blog/authors/**'
+      - 'drafts/**'
+    properties:
+      title:
+        select: head > meta[property="og:title"]
+        value: |
+          attribute(el, 'content')
+      description:
+        select: head > meta[name="description"]
+        value: |
+          attribute(el, 'content')
+      image:
+        select: head > meta[property="og:image"]
+        value: |
+          attribute(el, 'content')
+      template:
+        select: head > meta[name="template"]
+        value: |
+          attribute(el, 'content')
+      blogCategory:
+        select: head > meta[name="blog-category"]
+        value: |
+          attribute(el, 'content')
+      blogTags:
+        select: head > meta[name="blog-tags"]
+        values: |
+          match(attribute(el, 'content'), '([^,]+)')
+      author:
+        select: head > meta[name="author"]
+        value: |
+          attribute(el, 'content')
+      authorSlug:
+        select: head > meta[name="author-slug"]
+        value: |
+          attribute(el, 'content')
+      publicationDate:
+        select: head > meta[name="publication-date"]
+        value: |
+          attribute(el, 'content')
+      lastModified:
+        select: none
+        value: parseTimestamp(headers["last-modified"], "ddd, DD MMM YYYY hh:mm:ss GMT")
