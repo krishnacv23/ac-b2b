@@ -217,6 +217,26 @@
           }
         },
         {
+          "title": "Blog List",
+          "id": "blog-list",
+          "model": "blog-list",
+          "plugins": {
+            "da": {
+              "type": "key-value-block"
+            }
+          }
+        },
+        {
+          "title": "Blog Related Products",
+          "id": "blog-related-products",
+          "model": "blog-related-products",
+          "plugins": {
+            "da": {
+              "type": "key-value-block"
+            }
+          }
+        },
+        {
           "title": "Fragment",
           "id": "fragment",
           "model": "fragment",
