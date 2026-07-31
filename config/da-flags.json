@@ -1,0 +1,20 @@
+{
+  "description": "Paste these key/value rows into the DA site flags sheet at https://da.live/config#/krishnacv23/ac-b2b (flags sheet).",
+  "flags": [
+    {
+      "key": "ew.enabled",
+      "value": "true",
+      "notes": "Enables Experience Workspace on DA for this site"
+    },
+    {
+      "key": "ew.canvasDefaultView",
+      "value": "split",
+      "notes": "Useful default for blog long-form authoring (layout | content | split)"
+    },
+    {
+      "key": "ew.canvasDefaultPanel",
+      "value": "outline",
+      "notes": "Default left panel when opening canvas (outline | files | library item name)"
+    }
+  ]
+}

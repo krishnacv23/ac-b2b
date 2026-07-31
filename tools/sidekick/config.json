@@ -1,0 +1,13 @@
+{
+  "project": "ac-b2b",
+  "editUrlLabel": "Experience Workspace",
+  "editUrlPattern": "https://da.live/canvas#/{{org}}/{{site}}{{pathname}}",
+  "plugins": [
+    {
+      "id": "quick-edit",
+      "title": "Quick Edit",
+      "environments": ["dev", "preview"],
+      "event": "quick-edit"
+    }
+  ]
+}
