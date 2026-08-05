@@ -70,7 +70,8 @@ export function getPreviewBranch() {
   return branch;
 }
 
-export const IS_DEV_BRANCH = getPreviewBranch() === 'dev';
+export const IS_DEV_BRANCH = true;
+// export const IS_DEV_BRANCH = getPreviewBranch() === 'dev';
 
 /**
  * Product template paths - pages that are templates and should use
