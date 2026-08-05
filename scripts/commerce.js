@@ -53,6 +53,26 @@ export const IS_UE = window.location.hostname.includes('ue.da.live');
 export const IS_DA = new URL(window.location.href).searchParams.has('dapreview');
 
 /**
+ * Git branch from EDS preview hostname ({branch}--{site}--{org}.aem.page|.aem.live).
+ * @returns {string|null}
+ */
+export function getPreviewBranch() {
+  const { hostname } = window.location;
+  if (!hostname.includes('aem.page') && !hostname.includes('aem.live')) {
+    return null;
+  }
+
+  const [branch, site] = hostname.split('--');
+  if (!branch || !site || branch === hostname) {
+    return null;
+  }
+
+  return branch;
+}
+
+export const IS_DEV_BRANCH = getPreviewBranch() === 'dev';
+
+/**
  * Product template paths - pages that are templates and should use
  * default/fake SKUs. Should be relative to root path, ie "/" , "/fr/" , etc.
  */

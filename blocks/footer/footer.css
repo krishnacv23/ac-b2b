@@ -14,6 +14,20 @@ footer .footer p {
     margin: 0;
 }
 
+.footer-env-indicator {
+    display: inline-block;
+    margin-top: var(--spacing-medium);
+    padding: 4px 10px;
+    border-radius: 4px;
+    background-color: #f5a623;
+    color: var(--color-neutral-900);
+    font: var(--type-body-3-strong-font, var(--type-body-2-default-font));
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
 .storeview-switcher-button {
     background: transparent;
     padding-left: 0;

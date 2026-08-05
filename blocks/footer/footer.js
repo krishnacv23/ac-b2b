@@ -8,6 +8,7 @@ import {
 // Block-level
 import createModal from '../modal/modal.js';
 import { getMetadata } from '../../scripts/aem.js';
+import { IS_DEV_BRANCH } from '../../scripts/commerce.js';
 import { loadFragment } from '../fragment/fragment.js';
 
 /**
@@ -167,6 +168,14 @@ export default async function decorate(block) {
     }
   }
   while (fragment.firstElementChild) footer.append(fragment.firstElementChild);
+
+  if (IS_DEV_BRANCH) {
+    const indicator = document.createElement('p');
+    indicator.className = 'footer-env-indicator';
+    indicator.setAttribute('role', 'status');
+    indicator.textContent = 'Dev branch';
+    footer.append(indicator);
+  }
 
   block.append(footer);
 }
